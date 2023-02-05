@@ -32,5 +32,5 @@ class Produkty(models.Model):
         verbose_name = 'Auto'
         verbose_name_plural = 'Oferty sprzedaży'
 
-    def str(self):
+    def __str__(self):
         return self.nazwa
