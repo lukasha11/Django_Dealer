@@ -1,12 +1,21 @@
-from django.shortcuts import render
-from django.http import  HttpResponse
-from .models import Produkty
-from .models import Producent
+# from django.shortcuts import render
+# from django.http import  HttpResponse
+
+from .models import Producent, Produkty, Rodzaj
+from rest_framework import viewsets
+from .serializer import RodzajSerializer, ProducentSerializer, ProduktySerializer
 
 
-# Create your views here.
+class RodzajViewSet(viewsets.ModelViewSet):
+    queryset = Rodzaj.objects.all()
+    serializer_class = RodzajSerializer
 
-def index(request):
-    zapytanie = Produkty.objects.all()
-    # zapytanie = Sprzedaz.objects.all()
-    return HttpResponse(zapytanie)
+
+class ProducentViewSet(viewsets.ModelViewSet):
+    queryset = Producent.objects.all()
+    serializer_class = ProducentSerializer
+
+
+class ProduktyViewSet(viewsets.ModelViewSet):
+    queryset = Produkty.objects.all()
+    serializer_class = ProduktySerializer

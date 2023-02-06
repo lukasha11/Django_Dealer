@@ -3,21 +3,22 @@ from django.db import models
 # Create your models here.
 
 class Producent(models.Model):
-    def __str__(self):
-        return self.nazwa
     nazwa = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.nazwa
+    
+  
     class Meta:
-        verbose_name = 'Auto'
         verbose_name_plural = 'Producent'
         
 class Rodzaj(models.Model):
-    def __str__(self):
-        return self.nazwa
     nazwa = models.CharField(max_length=100)
 
+    def __str__(self):
+        return self.nazwa    
+    
     class Meta:
-        verbose_name = 'Auto'
         verbose_name_plural = 'Rodzaj'
 
 class Produkty(models.Model):
